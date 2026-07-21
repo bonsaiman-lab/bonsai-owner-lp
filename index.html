@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高松盆栽オーナー体験｜樹が刻んだ時間に触れる</title>
+<meta name="description" content="職人の棚場を訪ね、樹の見方と、持つ喜びに触れる2時間。高松・鬼無で、自分の一鉢を暮らしに迎える入口となる体験です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f3ea;
+    --bg-soft: #efeadd;
+    --ink: #2b2a26;
+    --green: #2e4b3a;
+    --green-deep: #1f362a;
+    --gold: #a98d4b;
+    --gold-soft: #c4ab72;
+    --white: #fdfcf8;
+    --serif: "Shippori Mincho B1", serif;
+    --sans: "Noto Sans JP", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.06em;
+    font-feature-settings: "palt";
+  }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; }
+  img { max-width: 100%; display: block; }
+  .inner { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---- 仮画像プレースホルダー（実写真差し替え時にこのdivをimgタグへ置換） ---- */
+  .ph {
+    position: relative;
+    background: linear-gradient(160deg, #dcd5c2 0%, #cfc8b2 45%, #b9b49d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .ph::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 70% 30%, rgba(46,75,58,0.25), transparent 70%),
+      radial-gradient(ellipse 50% 35% at 25% 70%, rgba(46,75,58,0.18), transparent 70%);
+  }
+  .ph span {
+    position: relative;
+    font-family: var(--serif);
+    font-size: 13px;
+    color: rgba(43,42,38,0.55);
+    letter-spacing: 0.2em;
+    border: 1px solid rgba(43,42,38,0.3);
+    padding: 6px 18px;
+    background: rgba(253,252,248,0.5);
+  }
+
+  /* ---- ヒーロー ---- */
+  .hero { position: relative; }
+  .hero .photo { width: 100%; height: 72vh; min-height: 480px; object-fit: cover; }
+  .hero-body {
+    position: relative;
+    background: var(--bg);
+    margin-top: -80px;
+    padding: 48px 32px 40px;
+    max-width: 640px;
+    margin-left: auto; margin-right: auto;
+    text-align: center;
+    box-shadow: 0 -1px 0 rgba(169,141,75,0.0);
+  }
+  .hero-lead {
+    font-family: var(--serif);
+    font-size: 15px;
+    letter-spacing: 0.28em;
+    color: var(--green);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 7vw, 44px);
+    line-height: 1.6;
+    letter-spacing: 0.12em;
+    color: var(--green-deep);
+  }
+  .hero-rule {
+    width: 72px; height: 2px;
+    background: var(--gold);
+    margin: 26px auto;
+  }
+  .hero-copy { font-size: 15px; line-height: 2.3; }
+
+  /* ---- CTAボタン ---- */
+  .btn {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    color: var(--white);
+    background: var(--green);
+    padding: 18px 56px;
+    text-decoration: none;
+    border: 1px solid var(--green);
+    transition: background 0.3s, color 0.3s;
+  }
+  .btn:hover { background: var(--green-deep); }
+  .btn small { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; opacity: 0.75; margin-top: 2px; }
+  .cta-note { font-size: 12px; color: #7a766b; margin-top: 14px; letter-spacing: 0.1em; }
+
+  /* ---- セクション共通 ---- */
+  section { padding: 88px 0; }
+  .sec-title {
+    text-align: center;
+    font-size: clamp(22px, 5vw, 28px);
+    letter-spacing: 0.24em;
+    color: var(--green-deep);
+    margin-bottom: 14px;
+  }
+  .sec-title::after {
+    content: "";
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--gold);
+    margin: 22px auto 0;
+  }
+  .sec-sub {
+    text-align: center;
+    font-size: 13px;
+    color: #7a766b;
+    letter-spacing: 0.14em;
+    margin-bottom: 48px;
+  }
+
+  /* ---- 位置づけ宣言 ---- */
+  .declare { background: var(--bg); text-align: center; padding-top: 40px; }
+  .declare p { font-size: 15px; line-height: 2.4; }
+  .declare .em {
+    font-family: var(--serif);
+    font-size: clamp(18px, 4.2vw, 22px);
+    color: var(--green-deep);
+    line-height: 2.2;
+    margin-top: 28px;
+  }
+
+  /* ---- 得られること ---- */
+  .gain { background: var(--white); }
+  .gain-list { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
+  .gain-item {
+    border: 1px solid #ddd6c2;
+    background: var(--bg);
+    padding: 36px 32px;
+    text-align: center;
+  }
+  .gain-item .num {
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .gain-item h3 { font-size: 20px; letter-spacing: 0.16em; color: var(--green-deep); margin-bottom: 12px; }
+  .gain-item p { font-size: 14px; }
+
+  /* ---- 体験の流れ ---- */
+  .flow { background: var(--bg); }
+  .flow-photo { max-width: 640px; margin: 48px auto 0; }
+  .flow-photo img { width: 100%; display: block; }
+  .flow-list { max-width: 560px; margin: 48px auto 0; }
+  .flow-item { display: flex; gap: 24px; position: relative; padding-bottom: 40px; }
+  .flow-item:last-child { padding-bottom: 0; }
+  .flow-item::before {
+    content: "";
+    position: absolute; left: 21px; top: 44px; bottom: 0;
+    width: 1px; background: #cfc8b2;
+  }
+  .flow-item:last-child::before { display: none; }
+  .flow-num {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    font-family: var(--serif);
+    font-size: 17px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .flow-item h3 { font-size: 17px; letter-spacing: 0.12em; color: var(--green-deep); padding-top: 7px; }
+  .flow-support {
+    max-width: 560px;
+    margin: 44px auto 0;
+    border: 1px solid var(--gold-soft);
+    padding: 20px 28px;
+    text-align: center;
+    font-size: 13px;
+    color: #5c584d;
+  }
+  .flow-support b { font-family: var(--serif); font-weight: 600; color: var(--green-deep); letter-spacing: 0.1em; }
+
+  /* ---- こんな方に ---- */
+  .who { background: var(--green-deep); color: #ece8dc; }
+  .who .sec-title { color: #ece8dc; }
+  .who-list { max-width: 560px; margin: 48px auto 0; list-style: none; }
+  .who-list li {
+    font-size: 15px;
+    padding: 22px 8px 22px 40px;
+    border-bottom: 1px solid rgba(236,232,220,0.2);
+    position: relative;
+    line-height: 1.9;
+  }
+  .who-list li:first-child { border-top: 1px solid rgba(236,232,220,0.2); }
+  .who-list li::before {
+    content: "";
+    position: absolute; left: 8px; top: 34px;
+    width: 14px; height: 1px;
+    background: var(--gold-soft);
+  }
+
+  /* ---- 棚場の情景 ---- */
+  .scenery img { width: 100%; height: 46vh; min-height: 300px; object-fit: cover; display: block; }
+
+  /* ---- 案内人 ---- */
+  .guide { background: var(--white); }
+  .guide-card { max-width: 640px; margin: 48px auto 0; }
+  .guide-photo img { width: 100%; height: 320px; object-fit: cover; }
+  .guide-body { padding: 36px 8px 0; }
+  .guide-role { font-size: 12px; letter-spacing: 0.24em; color: var(--gold); margin-bottom: 8px; }
+  .guide-body h3 { font-size: 26px; letter-spacing: 0.2em; color: var(--green-deep); margin-bottom: 20px; }
+  .guide-body p { font-size: 14px; margin-bottom: 16px; }
+  .guide-plan { font-size: 12px; color: #7a766b; letter-spacing: 0.1em; margin-top: 24px; }
+
+  /* ---- 開催概要 ---- */
+  .outline { background: var(--bg); }
+  .outline-table { max-width: 560px; margin: 48px auto 0; width: 100%; border-collapse: collapse; }
+  .outline-table th, .outline-table td {
+    border-bottom: 1px solid #ddd6c2;
+    padding: 20px 8px;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 300;
+  }
+  .outline-table tr:first-child th, .outline-table tr:first-child td { border-top: 1px solid #ddd6c2; }
+  .outline-table th {
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--green-deep);
+    letter-spacing: 0.14em;
+    width: 8em;
+    white-space: nowrap;
+  }
+  .outline-include {
+    max-width: 560px;
+    margin: 36px auto 0;
+    font-size: 13px;
+    color: #5c584d;
+    text-align: center;
+  }
+
+  /* ---- FAQ ---- */
+  .faq { background: var(--white); }
+  .faq-list { max-width: 640px; margin: 48px auto 0; }
+  .faq-item { border-bottom: 1px solid #ddd6c2; }
+  .faq-item:first-child { border-top: 1px solid #ddd6c2; }
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    gap: 16px;
+    padding: 24px 8px;
+    font-size: 15px;
+    line-height: 1.9;
+    align-items: baseline;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "Q";
+    font-family: var(--serif);
+    color: var(--gold);
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .faq-a {
+    display: flex; gap: 16px;
+    padding: 0 8px 26px;
+    font-size: 14px;
+    color: #5c584d;
+  }
+  .faq-a::before {
+    content: "A";
+    font-family: var(--serif);
+    color: var(--green);
+    font-size: 17px;
+    flex-shrink: 0;
+    line-height: 1.9;
+  }
+
+  /* ---- 申込 ---- */
+  .reserve { background: var(--green-deep); text-align: center; color: #ece8dc; padding: 96px 0; }
+  .reserve-copy {
+    font-family: var(--serif);
+    font-size: clamp(20px, 5vw, 26px);
+    letter-spacing: 0.18em;
+    line-height: 2.1;
+    margin-bottom: 40px;
+  }
+  .reserve .btn {
+    background: var(--white);
+    color: var(--green-deep);
+    border-color: var(--white);
+  }
+  .reserve .btn:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+  .reserve-contact { margin-top: 44px; font-size: 14px; letter-spacing: 0.1em; }
+  .reserve-contact a { color: #ece8dc; text-decoration: none; border-bottom: 1px solid rgba(236,232,220,0.4); }
+  .reserve-notes {
+    max-width: 560px;
+    margin: 48px auto 0;
+    font-size: 12px;
+    color: rgba(236,232,220,0.65);
+    text-align: left;
+    line-height: 2;
+  }
+  .reserve-notes p { padding-left: 1.2em; text-indent: -1.2em; }
+
+  footer {
+    background: #17281f;
+    color: rgba(236,232,220,0.6);
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    padding: 28px 24px;
+  }
+
+  /* ---- 追従CTA（スマホ） ---- */
+  .float-cta {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(246,243,234,0.95);
+    border-top: 1px solid #ddd6c2;
+    text-align: center;
+    transform: translateY(110%);
+    transition: transform 0.35s;
+    z-index: 50;
+  }
+  .float-cta.show { transform: translateY(0); }
+  .float-cta .btn { padding: 13px 0; width: 100%; max-width: 420px; font-size: 15px; }
+
+  /* ---- フェードイン ---- */
+  .fade { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade.on { opacity: 1; transform: none; }
+
+  @media (min-width: 640px) {
+    .hero-body { margin-top: 0; max-width: none; padding-top: 64px; }
+    .gain-list { flex-direction: row; }
+    .gain-item { flex: 1; }
+    .guide-card { display: flex; gap: 40px; align-items: flex-start; }
+    .guide-photo { flex: 0 0 260px; }
+    .guide-body { padding-top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= ヒーロー ================= -->
+<header class="hero">
+  <img class="photo" src="lp_images/hero.jpg" alt="高松・鬼無の棚場に立つ松盆栽">
+  <div class="hero-body">
+    <p class="hero-lead">樹が刻んだ時間に触れる</p>
+    <h1>高松盆栽<br>オーナー体験</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-copy">職人の棚場を訪ね、<br>樹の見方と、持つ喜びに触れる2時間です。</p>
+    <div style="margin-top: 36px;">
+      <!-- ★予約URL差し替え -->
+      <a class="btn" href="https://example.com/reserve" target="_blank" rel="noopener">開催日程を見て申し込む</a>
+      <p class="cta-note">各回2〜4名｜月1回開催｜事前予約制</p>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 位置づけ ================= -->
+<section class="declare fade">
+  <div class="inner">
+    <p>盆栽を上手に育てるための講座ではありません。</p>
+    <p class="em">良い一鉢を、自分の暮らしに迎える。<br>その入口となる、高松でしかできない体験です。</p>
+  </div>
+</section>
+
+<!-- ================= 得られること ================= -->
+<section class="gain">
+  <div class="inner">
+    <h2 class="sec-title fade">この体験で得られること</h2>
+    <div class="gain-list">
+      <div class="gain-item fade">
+        <p class="num">壱</p>
+        <h3>樹の見方に触れる</h3>
+        <p>幹や枝から、樹が重ねた時間を味わいます。</p>
+      </div>
+      <div class="gain-item fade">
+        <p class="num">弐</p>
+        <h3>職人の棚場に入る</h3>
+        <p>高松・鬼無で、職人の言葉とともに本物に触れます。</p>
+      </div>
+      <div class="gain-item fade">
+        <p class="num">参</p>
+        <h3>自分の一鉢を迎える</h3>
+        <p>小さな一鉢を選び、暮らしへ持ち帰ります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 体験の流れ ================= -->
+<section class="flow">
+  <div class="inner">
+    <h2 class="sec-title fade">体験の流れ</h2>
+    <div class="flow-photo fade">
+      <img src="lp_images/taiken.jpg" alt="棚場で見学者に樹を案内する様子" loading="lazy">
+    </div>
+    <div class="flow-list">
+      <div class="flow-item fade">
+        <div class="flow-num">1</div>
+        <h3>高松盆栽と鬼無の背景を知る</h3>
+      </div>
+      <div class="flow-item fade">
+        <div class="flow-num">2</div>
+        <h3>職人と棚場を巡る</h3>
+      </div>
+      <div class="flow-item fade">
+        <div class="flow-num">3</div>
+        <h3>樹の見方と基本の手入れに触れる</h3>
+      </div>
+      <div class="flow-item fade">
+        <div class="flow-num">4</div>
+        <h3>自分の一鉢を選び、持ち帰る</h3>
+      </div>
+    </div>
+    <div class="flow-support fade">
+      <b>30日安心サポート付き</b><br>
+      お持ち帰り後の基本的な管理について、ご相談いただけます。
+    </div>
+  </div>
+</section>
+
+<!-- ================= こんな方に ================= -->
+<section class="who">
+  <div class="inner">
+    <h2 class="sec-title fade">こんな方に</h2>
+    <ul class="who-list">
+      <li class="fade">盆栽に興味はあるが、何から始めればよいかわからない方</li>
+      <li class="fade">日本文化や職人の世界に触れたい方</li>
+      <li class="fade">日常に、静かな時間を持ちたい方</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 棚場の情景 ================= -->
+<div class="scenery">
+  <img src="lp_images/tanaba.jpg" alt="北谷養盛園の棚場" loading="lazy">
+</div>
+
+<!-- ================= 案内人 ================= -->
+<section class="guide">
+  <div class="inner">
+    <h2 class="sec-title fade">案内人</h2>
+    <div class="guide-card fade">
+      <div class="guide-photo">
+        <img src="lp_images/guide.jpg" alt="棚場に立つ北谷隆一氏">
+      </div>
+      <div class="guide-body">
+        <p class="guide-role">北谷養盛園 4代目</p>
+        <h3>北谷 隆一</h3>
+        <p>高松・鬼無で、親子7,000本以上の松盆栽を管理。</p>
+        <p>四代にわたり受け継がれてきた棚場で、樹と向き合う日々のなかから、一本一本の見どころを言葉にして案内します。</p>
+        <p class="guide-plan">企画：Bonsai Agency 玉井謙二</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 開催概要 ================= -->
+<section class="outline">
+  <div class="inner">
+    <h2 class="sec-title fade">開催概要</h2>
+    <table class="outline-table fade">
+      <tr><th>参加費</th><td>30,000円（税込）</td></tr>
+      <tr><th>所要時間</th><td>約2時間</td></tr>
+      <tr><th>定員</th><td>各回2〜4名</td></tr>
+      <tr><th>開催頻度</th><td>月1回（事前予約制）</td></tr>
+      <tr><th>開催場所</th><td>高松市鬼無町 北谷養盛園</td></tr>
+    </table>
+    <p class="outline-include fade">職人による案内、棚場見学、樹の見方の解説、簡単な手入れ体験、<br>小さな一鉢、30日安心サポートを含みます。</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq">
+  <div class="inner">
+    <h2 class="sec-title fade">よくあるご質問</h2>
+    <div class="faq-list fade">
+      <details class="faq-item">
+        <summary>盆栽の知識がまったくなくても参加できますか？</summary>
+        <div class="faq-a">はい。初めての方のための体験です。職人が樹の見方から丁寧にご案内しますので、知識や道具は必要ありません。</div>
+      </details>
+      <details class="faq-item">
+        <summary>持ち帰る盆栽はどのようなものですか？</summary>
+        <div class="faq-a">園内の対象盆栽の中から、北谷隆一氏と相談して体験用の小さな一鉢をお選びいただきます。お持ち帰り後30日間は、基本的な管理についてご相談いただけます。</div>
+      </details>
+      <details class="faq-item">
+        <summary>アクセス方法を教えてください。</summary>
+        <div class="faq-a">会場は高松市鬼無町の北谷養盛園です。お申し込み後の確認メールにて、詳しい道順をご案内します。午前に体験を終えて、午後は高松観光を楽しむこともできます。</div>
+      </details>
+      <details class="faq-item">
+        <summary>申し込み後の流れを教えてください。</summary>
+        <div class="faq-a">ご予約確定後、確認メールにて当日のご案内をお送りします。ご不明な点はお問い合わせ先までご連絡ください。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 申込 ================= -->
+<section class="reserve" id="reserve">
+  <div class="inner">
+    <p class="reserve-copy fade">まずは、<br>樹が刻んだ時間に<br>触れてみてください。</p>
+    <div class="fade">
+      <!-- ★予約URL差し替え -->
+      <a class="btn" href="https://example.com/reserve" target="_blank" rel="noopener">開催日程を見て申し込む</a>
+      <p class="cta-note" style="color: rgba(236,232,220,0.65);">各回2〜4名｜月1回開催｜事前予約制</p>
+    </div>
+    <div class="reserve-contact fade">
+      <!-- ★連絡先差し替え -->
+      お問い合わせ：<a href="tel:0000000000">00-0000-0000</a>｜<a href="mailto:info@example.com">info@example.com</a>
+    </div>
+    <div class="reserve-notes fade">
+      <p>※お持ち帰りいただく盆栽は、体験用の小さな一鉢です。</p>
+      <p>※30日安心サポートは、基本的な管理相談を目的としています。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  高松盆栽オーナー体験｜北谷養盛園（高松市鬼無町）｜企画 Bonsai Agency
+</footer>
+
+<!-- 追従CTA（スマホ閲覧時、ヒーローを過ぎたら表示） -->
+<div class="float-cta" id="floatCta">
+  <!-- ★予約URL差し替え -->
+  <a class="btn" href="https://example.com/reserve" target="_blank" rel="noopener">開催日程を見て申し込む</a>
+</div>
+
+<script>
+  // ふわっと表示
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll(".fade").forEach(el => io.observe(el));
+
+  // 追従CTA：ヒーローを過ぎたら表示、申込セクションでは隠す
+  const floatCta = document.getElementById("floatCta");
+  const hero = document.querySelector(".hero");
+  const reserve = document.getElementById("reserve");
+  const check = () => {
+    const past = window.scrollY > hero.offsetHeight * 0.8;
+    const r = reserve.getBoundingClientRect();
+    const inReserve = r.top < window.innerHeight && r.bottom > 0;
+    floatCta.classList.toggle("show", past && !inReserve);
+  };
+  window.addEventListener("scroll", check, { passive: true });
+  check();
+</script>
+
+</body>
+</html>
