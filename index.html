@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高松盆栽オーナー体験｜樹が刻んだ時間に触れる</title>
-<meta name="description" content="なぜ、この一鉢は美しいのか。職人の棚場で、盆栽の見方と価値の理由を知り、自分の一鉢を迎える2時間。高松・鬼無で、大人の教養として盆栽に触れる体験です。">
+<meta name="description" content="なぜ、この一鉢は美しいのか。職人の棚場で、盆栽の見方と価値の理由を知り、自分の一鉢を迎える2時間。お持ち帰りのあと3ヶ月は、職人が写真で見守ります。高松・鬼無で、大人の教養として盆栽に触れる体験です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -112,6 +112,30 @@
   .btn:hover { background: var(--green-deep); }
   .btn small { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; opacity: 0.75; margin-top: 2px; }
   .cta-note { font-size: 12px; color: #7a766b; margin-top: 14px; letter-spacing: 0.1em; }
+  /* 予約受付の準備中に使う非活性ボタン。STORES予約の審査通過後、通常の .btn リンクへ戻す */
+  .btn-soon {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    color: var(--green);
+    background: transparent;
+    border: 1px solid var(--gold-soft);
+    padding: 18px 48px;
+    cursor: default;
+  }
+  .reserve .btn-soon { color: #ece8dc; border-color: rgba(236,232,220,0.45); }
+  .contact-mail {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: 17px;
+    letter-spacing: 0.06em;
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 4px;
+  }
+  .reserve .contact-mail { color: #ece8dc; border-color: var(--gold-soft); }
 
   /* ---- セクション共通 ---- */
   section { padding: 88px 0; }
@@ -150,7 +174,7 @@
 
   /* ---- 得られること ---- */
   .gain { background: var(--white); }
-  .gain-list { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
+  .gain-list { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 48px; }
   .gain-item {
     border: 1px solid #ddd6c2;
     background: var(--bg);
@@ -271,6 +295,72 @@
     color: #5c584d;
   }
   .flow-support b { font-family: var(--serif); font-weight: 600; color: var(--green-deep); letter-spacing: 0.1em; }
+
+  /* ---- 最初の一季 ---- */
+  .season { background: var(--white); }
+  .season-label {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .season-lead {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    line-height: 2.4;
+  }
+  .season-lead + .season-lead { margin-top: 26px; }
+  .season-lead b {
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--green-deep);
+    letter-spacing: 0.08em;
+  }
+  .season-items {
+    max-width: 600px;
+    margin: 48px auto 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .season-item {
+    border: 1px solid var(--gold-soft);
+    background: var(--bg);
+    padding: 32px 28px;
+    text-align: center;
+  }
+  .season-item h3 {
+    font-size: 17px;
+    letter-spacing: 0.14em;
+    color: var(--green-deep);
+    margin-bottom: 14px;
+  }
+  .season-item p { font-size: 14px; line-height: 2.2; }
+  .season-close {
+    max-width: 560px;
+    margin: 44px auto 0;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: clamp(17px, 4vw, 20px);
+    color: var(--green-deep);
+    letter-spacing: 0.1em;
+    line-height: 2.1;
+  }
+  .season-note {
+    max-width: 560px;
+    margin: 36px auto 0;
+    padding-top: 22px;
+    border-top: 1px solid #ddd6c2;
+    font-size: 12px;
+    color: #7a766b;
+    letter-spacing: 0.08em;
+    line-height: 2;
+  }
+  .season-note p { padding-left: 1.2em; text-indent: -1.2em; }
 
   /* ---- こんな方に ---- */
   .who { background: var(--green-deep); color: #ece8dc; }
@@ -427,8 +517,8 @@
 
   @media (min-width: 640px) {
     .hero-body { margin-top: 0; max-width: none; padding-top: 64px; }
-    .gain-list { flex-direction: row; }
-    .gain-item { flex: 1; }
+    .gain-list { grid-template-columns: repeat(2, 1fr); }
+    .season-items { grid-template-columns: repeat(2, 1fr); }
     .guide-card { display: flex; gap: 40px; align-items: flex-start; }
     .guide-photo { flex: 0 0 260px; }
     .guide-body { padding-top: 8px; }
@@ -444,11 +534,13 @@
     <p class="hero-lead">樹が刻んだ時間に触れる</p>
     <h1>高松盆栽<br>オーナー体験</h1>
     <div class="hero-rule"></div>
-    <p class="hero-copy">なぜ、この一鉢は美しいのか。<br>職人の棚場で、盆栽の見方と価値の理由を知り、<br>自分の一鉢を迎える2時間です。</p>
+    <p class="hero-copy">なぜ、この一鉢は美しいのか。<br>職人の棚場で、盆栽の見方と価値の理由を知り、<br>自分の一鉢を迎える2時間です。<br>迎えたあとの3ヶ月も、ひとりにしません。</p>
     <div style="margin-top: 36px;">
-      <!-- ★予約URL差し替え -->
-      <a class="btn" href="https://example.com/reserve" target="_blank" rel="noopener">開催日程を見て申し込む</a>
-      <p class="cta-note">各回2〜4名｜月1回開催｜事前予約制</p>
+      <!-- ★審査通過後、下記1行を有効化して .btn-soon の span を削除すること
+      <a class="btn" href="【STORES予約のURL】" target="_blank" rel="noopener">開催日程を見て申し込む</a>
+      -->
+      <span class="btn-soon">予約受付　準備中</span>
+      <p class="cta-note">各回2〜4名｜月1回開催｜事前予約制<br>受付開始のご案内をご希望の方は、メールにてご連絡ください。</p>
     </div>
   </div>
 </header>
@@ -480,6 +572,11 @@
         <p class="num">参</p>
         <h3>自分の一鉢を迎える</h3>
         <p>知った上で一鉢を選び、自分の暮らしへ持ち帰ります。</p>
+      </div>
+      <div class="gain-item fade">
+        <p class="num">肆</p>
+        <h3>迎えたあとも、ひとりにしない</h3>
+        <p>お引き渡しから3ヶ月、職人が写真で見守ります。</p>
       </div>
     </div>
   </div>
@@ -538,10 +635,51 @@
         <div class="flow-num">5</div>
         <h3>基本の管理を確認し、持ち帰る</h3>
       </div>
+      <div class="flow-item fade">
+        <div class="flow-num">6</div>
+        <h3>最初の一季を、一緒に越える</h3>
+      </div>
     </div>
-    <div class="flow-support fade">
-      <b>30日安心サポート付き</b><br>
-      お持ち帰り後の基本的な管理について、ご相談いただけます。
+  </div>
+</section>
+
+<!-- ================= 最初の一季 ================= -->
+<section class="season">
+  <div class="inner">
+    <p class="season-label fade">お持ち帰りのあと</p>
+    <h2 class="sec-title fade">最初の一季を、一緒に越える。</h2>
+
+    <p class="season-lead fade">
+      「枯らしてしまいそうで」——<br>
+      盆栽に関心はあっても、その一点で手が出せない。<br>
+      そう感じる方は、少なくありません。
+    </p>
+
+    <p class="season-lead fade">
+      だからこの体験には、お引き渡しから<b>3ヶ月</b>、<br>
+      職人が見守る期間を含めています。<br>
+      置き場所と水やりのリズムをつかむまでを、ひとりにしないためです。
+    </p>
+
+    <div class="season-items">
+      <div class="season-item fade">
+        <h3>写真で相談できます</h3>
+        <p>葉の色が変わった、元気がない気がする。そう感じたら写真をお送りください。職人が状態を確認し、対応をご案内します。</p>
+      </div>
+      <div class="season-item fade">
+        <h3>弱ったときは、お預かりします</h3>
+        <p>ご自宅での回復が難しいと判断した場合、棚場でお預かりし、日々の観察と水やりで様子を見たうえでお返しします。</p>
+      </div>
+    </div>
+
+    <p class="season-close fade">
+      ひとりで枯らさないために、<br>この3ヶ月があります。
+    </p>
+
+    <div class="season-note fade">
+      <p>※お預かりの際の送料は、お客さまのご負担となります。</p>
+      <p>※お預かり中の日々の観察と水やりに、追加の費用はいただきません。植え替え、施肥、菌や害虫への対応など特別な作業が必要な場合は、北谷養盛園より別途お見積もりのうえご相談します。</p>
+      <p>※盆栽は生き物のため、状態によっては回復しないこともあり、枯れないことをお約束するものではありません。日々の水やりなど基本的な管理は、お客さまにお願いしております。</p>
     </div>
   </div>
 </section>
@@ -555,6 +693,7 @@
       <li class="fade">日本文化や職人の美意識に触れたい方</li>
       <li class="fade">良い盆栽の見方を、大人の教養として知りたい方</li>
       <li class="fade">自分の暮らしに合う一鉢を迎えてみたい方</li>
+      <li class="fade">以前から気になっていたが、枯らしそうで手が出せなかった方</li>
     </ul>
   </div>
 </section>
@@ -592,10 +731,12 @@
       <tr><th>所要時間</th><td>約2時間</td></tr>
       <tr><th>定員</th><td>各回2〜4名</td></tr>
       <tr><th>開催頻度</th><td>月1回（事前予約制）</td></tr>
-      <tr><th>開催場所</th><td>高松市鬼無町 北谷養盛園</td></tr>
+      <!-- STORES予約の申請内容と一致（2026-08-10）。表記を変更しないこと。 -->
+      <tr><th>開催場所</th><td>北谷養盛園<br>香川県高松市鬼無町藤井36-1</td></tr>
       <tr><th>お持ち帰り</th><td>園内にある対象盆栽の中から、ご自宅の置き場所、日当たり、水やりの環境などを確認し、北谷隆一氏と相談しながら一鉢をお選びいただきます。北谷養盛園での小売価格1万円相当を目安とした一鉢です。</td></tr>
+      <tr><th>サポート</th><td>お引き渡しから3ヶ月間（「最初の一季」）。写真によるご相談と、必要に応じたお預かり対応を含みます。</td></tr>
     </table>
-    <p class="outline-include fade">高松盆栽の歴史の解説、盆栽格付け体験、職人による棚場のご案内、<br>お持ち帰りの一鉢、30日安心サポートを含みます。</p>
+    <p class="outline-include fade">高松盆栽の歴史の解説、盆栽格付け体験、職人による棚場のご案内、<br>お持ち帰りの一鉢、最初の一季の見守りを含みます。</p>
   </div>
 </section>
 
@@ -610,11 +751,19 @@
       </details>
       <details class="faq-item">
         <summary>管理技術を学ぶ体験ですか？</summary>
-        <div class="faq-a">この体験の中心は、剪定や針金などの技術習得ではありません。高松盆栽の歴史や、良い盆栽の見方、価値の理由に触れていただくことです。お持ち帰り後に必要となる置き場所や水やりについては、初めての方にもわかる範囲でご案内します。</div>
+        <div class="faq-a">この体験の中心は、剪定や針金などの技術習得ではありません。高松盆栽の歴史や、良い盆栽の見方、価値の理由に触れていただくことです。お持ち帰り後に必要となる置き場所や水やりについては、初めての方にもわかる範囲でご案内します。お持ち帰りのあとについても、最初の3ヶ月は職人が写真で見守りますので、技術を身につけてから迎える必要はありません。</div>
       </details>
       <details class="faq-item">
         <summary>持ち帰る盆栽はどのようなものですか？</summary>
         <div class="faq-a">園内にある対象盆栽の中から、ご自宅の置き場所、日当たり、水やりの環境などを確認し、北谷隆一氏と相談しながら一鉢をお選びいただきます。体験でお選びいただくのは、北谷養盛園での小売価格1万円相当を目安とした一鉢です。</div>
+      </details>
+      <details class="faq-item">
+        <summary>「最初の一季」とは、どのくらいの期間ですか？</summary>
+        <div class="faq-a">お引き渡しから3ヶ月間です。盆栽が弱る原因は、多くが水やりの過不足によるものです。最初の3ヶ月で置き場所と水やりのリズムをつかんでいただけるよう、その間は職人が写真で状態を確認します。</div>
+      </details>
+      <details class="faq-item">
+        <summary>枯れてしまったらどうなりますか？</summary>
+        <div class="faq-a">最初の一季（お引き渡しから3ヶ月）の期間中は、写真によるご相談を承ります。ご自宅での回復が難しいと判断した場合は、棚場でお預かりし、日々の観察と水やりで様子を見たうえでお返しします（お預かりの際の送料はお客さまのご負担となります。植え替え、施肥、菌や害虫への対応など特別な作業が必要な場合は、別途お見積もりとなります）。<br><br>ただし盆栽は生き物です。状態によっては回復しないこともあり、枯れないことをお約束するものではありません。また、枯れた場合の交換や返金は承っておりません。日々の水やりなど基本的な管理は、お客さまにお願いしております。</div>
       </details>
       <details class="faq-item">
         <summary>アクセス方法を教えてください。</summary>
@@ -624,6 +773,14 @@
         <summary>申し込み後の流れを教えてください。</summary>
         <div class="faq-a">ご予約確定後、確認メールにて当日のご案内をお送りします。ご不明な点はお問い合わせ先までご連絡ください。</div>
       </details>
+      <!-- ★要追加：キャンセル・返金条件が未確定のため未実装。
+           以下を決定のうえ、この位置にFAQを追加し、特商法ページにも同一内容を記載すること。
+             ・何日前まで無料でキャンセル可能か
+             ・それ以降のキャンセル料（率または額）
+             ・当日キャンセル／無連絡不参加の扱い
+             ・主催者都合の中止時の対応（全額返金か振替か）
+             ・荒天時の扱い（屋外の棚場を巡るため、判断基準を明記）
+           ※この項目が未記載のままの公開は不可（特定商取引法） -->
     </div>
   </div>
 </section>
@@ -633,29 +790,47 @@
   <div class="inner">
     <p class="reserve-copy fade">なぜ、この一鉢は美しいのか。<br>その答えを、職人の棚場で。</p>
     <div class="fade">
-      <!-- ★予約URL差し替え -->
-      <a class="btn" href="https://example.com/reserve" target="_blank" rel="noopener">開催日程を見て申し込む</a>
+      <!-- ★審査通過後、下記1行を有効化して .btn-soon の span を削除すること
+      <a class="btn" href="【STORES予約のURL】" target="_blank" rel="noopener">開催日程を見て申し込む</a>
+      -->
+      <span class="btn-soon">予約受付　準備中</span>
       <p class="cta-note" style="color: rgba(236,232,220,0.65);">各回2〜4名｜月1回開催｜事前予約制</p>
     </div>
     <div class="reserve-contact fade">
-      <!-- ★連絡先差し替え -->
-      お問い合わせ：<a href="tel:0000000000">00-0000-0000</a>｜<a href="mailto:info@example.com">info@example.com</a>
+      現在、予約の受付準備を進めております。<br>
+      受付開始のご案内、体験に関するご質問は、<br>
+      下記までお気軽にお問い合わせください。
+      <p style="margin-top:22px;">
+        <a class="contact-mail" href="mailto:kentamai.0303@gmail.com">kentamai.0303@gmail.com</a>
+      </p>
     </div>
     <div class="reserve-notes fade">
       <p>※お持ち帰りいただく盆栽は、北谷養盛園での小売価格1万円相当を目安とした一鉢です。樹種や樹形はお選びいただく時期により異なります。</p>
+      <p>※盆栽は生き物のため、状態や安全について完全に保証するものではありません。</p>
+      <p>※日々の水やりなど基本的な管理は、お客さまに行っていただきます。</p>
+      <p>※植え替え、施肥、消毒、菌や害虫への対応など専門的な手当てが必要な場合は、北谷養盛園より別途お見積もりいたします。</p>
     </div>
   </div>
 </section>
 
 <footer>
-  高松盆栽オーナー体験｜北谷養盛園（高松市鬼無町）｜企画 Bonsai Agency
+  高松盆栽オーナー体験<br>
+  北谷養盛園　香川県高松市鬼無町藤井36-1<br>
+  企画：Bonsai Agency
+  <!-- ★公開ブロッカー：特定商取引法に基づく表記のページが未作成のため、リンクをコメントアウト中。
+       tokushoho.html を作成し、全項目を記入したうえで下記1行を有効化すること。
+       この表記がないままの公開は不可。
+  <br><a href="tokushoho.html">特定商取引法に基づく表記</a>
+  -->
 </footer>
 
-<!-- 追従CTA（スマホ閲覧時、ヒーローを過ぎたら表示） -->
+<!-- 追従CTA（スマホ閲覧時、ヒーローを過ぎたら表示）
+     ★予約受付が準備中のあいだは非表示。審査通過後、下記コメントを解除し
+       href に STORES予約のURL を入れること。JS側は要素が無くても動作する。
 <div class="float-cta" id="floatCta">
-  <!-- ★予約URL差し替え -->
-  <a class="btn" href="https://example.com/reserve" target="_blank" rel="noopener">開催日程を見て申し込む</a>
+  <a class="btn" href="【STORES予約のURL】" target="_blank" rel="noopener">開催日程を見て申し込む</a>
 </div>
+-->
 
 <script>
   // ふわっと表示
@@ -665,17 +840,20 @@
   document.querySelectorAll(".fade").forEach(el => io.observe(el));
 
   // 追従CTA：ヒーローを過ぎたら表示、申込セクションでは隠す
+  // （予約受付が準備中のあいだ #floatCta は存在しないため、null を許容する）
   const floatCta = document.getElementById("floatCta");
   const hero = document.querySelector(".hero");
   const reserve = document.getElementById("reserve");
-  const check = () => {
-    const past = window.scrollY > hero.offsetHeight * 0.8;
-    const r = reserve.getBoundingClientRect();
-    const inReserve = r.top < window.innerHeight && r.bottom > 0;
-    floatCta.classList.toggle("show", past && !inReserve);
-  };
-  window.addEventListener("scroll", check, { passive: true });
-  check();
+  if (floatCta && hero && reserve) {
+    const check = () => {
+      const past = window.scrollY > hero.offsetHeight * 0.8;
+      const r = reserve.getBoundingClientRect();
+      const inReserve = r.top < window.innerHeight && r.bottom > 0;
+      floatCta.classList.toggle("show", past && !inReserve);
+    };
+    window.addEventListener("scroll", check, { passive: true });
+    check();
+  }
 </script>
 
 </body>
