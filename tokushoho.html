@@ -123,6 +123,55 @@
     .tbl tr:first-child td { border-top: none; }
   }
 </style>
+<style id="kintsugi-repair">
+/* ══ 金継ぎ 追補CSS（bonsai-owner-lp・2026-09-11・写しへの修理デモ）══
+   元のCSSの後ろで上書きする。新しい色は発明しない（例外: 金の文字を床に載せる派生1色 --gold-ink）。
+   本体（公開中のページ）は無改変。依頼主の承認後に <head> 末尾へ貼るだけで効く形。 */
+
+/* ── 派生1色: 見出しラベルの金 #A98D4B は薄地で比2.9〜3.1（床4.5未満）。色相を保って明度だけ落とす ── */
+:root { --gold-ink: #7f6630; }
+
+/* ── ①破れ: 低コントラスト16件 ── */
+/* 注記の灰 #7A766B（比4.1〜4.4）→ FAQ回答で既に使われている #5C584D（比6.4〜6.9） */
+.cta-note, .value-caption, .rating-caption, .rating-note, .season-note, .guide-plan { color: #5c584d; }
+/* 金のラベル（壱弐参肆・体験の中で・お持ち帰りのあと・北谷養盛園 4代目）→ 派生の濃い金 */
+.gain-item .num, .rating-label, .season-label, .guide-role { color: var(--gold-ink); }
+/* フッターのリンク「特定商取引法に基づく表記」はブラウザ既定の青 #0000EE のまま（濃緑地で比1.6）→ 金の薄色（比5.8） */
+footer a { color: var(--gold-soft); }
+
+/* ── ①破れ: 極小文字2件（フッター11px）── */
+footer { font-size: 12px; }
+
+/* ── ②文字サイズ 役割内の割れ（h3 4段→2 ・本文の飾り行3種→1本・ボタン3段→1・その他4段→3）── */
+.flow-item h3, .season-item h3 { font-size: 20px; }          /* 17 → 20（得られることの見出しと同じ段） */
+.rating h3 { font-size: 26px; }                               /* clamp(20,4.6vw,24) → 案内人の名前と同じ26 */
+.gain-item .num { font-size: 12px; }                          /* 13 → 12（注記・ラベルの段） */
+.gain-item p, .rating p, .season-item p, .guide-body p, .outline-table th, .outline-table td { font-size: 15px; }  /* 14 → 15（導入文と同じ本文の段・大きい方へ寄せる） */
+.rating .em { font-size: 15px; }                              /* 16 → 15（強調は書体と色で残る） */
+.outline-include { font-size: 12px; }                         /* 13 → 12（注記の段） */
+.reserve-contact { font-size: 15px; }                         /* 14 → 15（質問文と同じ段） */
+.declare .em, .season-close, .reserve-copy { font-size: clamp(18px, 4.2vw, 22px); }  /* 節を締める飾り行3種を1本のclampに */
+.float-cta .btn { font-size: 16px; }                          /* 15 → 16（ボタンの段） */
+.contact-mail { font-size: 16px; }                            /* 17 → 16（ボタンの段） */
+.faq-a { font-size: 15px; }                                   /* 14 → 15（質問文と同じ段） */
+
+/* ── ③似て非なる色（5件のうち役割の無い2件だけ統合。地色の拍・罫線・ボタンの緑は残す）── */
+/* 濃緑地の薄い文字 #ECE8DC → ページの地 #F6F3EA（同じ「濃緑地の上の明るい文字」の役割） */
+.who, .who .sec-title, .who-list li, .reserve, .reserve .contact-mail, .reserve .btn-soon, .reserve-notes, .reserve-notes p { color: var(--bg); }
+/* 締めの節の注記はstyle属性で直書き（rgba(236,232,220,.65)）のため、写しでは !important で同じ透け具合の地色に。本体では属性側を直すのが正 */
+.reserve .cta-note { color: rgba(246,243,234,0.65) !important; }
+/* フッターの地 #17281F → 締めの節と同じ #1F362A（末尾の濃緑を1色に。境目は地色の細い線で残す） */
+footer { background: var(--green-deep); border-top: 1px solid rgba(246,243,234,0.12); color: rgba(246,243,234,0.6); }
+.who-list li::before { color: var(--bg); }
+
+/* ── 参考: 言葉の泣き別れ（「日々の|水やり」「申|し込」）は文節で折る（対応ブラウザのみ・非対応は無視される）── */
+body { word-break: auto-phrase; }
+
+/* ── 特定商取引法ページ（/tokushoho）: 共通の追補で同じ手当て ── */
+.note { color: #5c584d; }                                     /* 注記の灰 → #5C584D（トップと同じ） */
+header.head, header.head h1 { color: var(--bg); }             /* 濃緑地の薄い文字 #ECE8DC → 地の色 */
+header.head p { color: rgba(246,243,234,0.7); }
+</style>
 </head>
 <body>
 
